@@ -2,6 +2,8 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import { css } from '@emotion/core'
 import { Home } from './home'
+import { UserHomePage } from './users'
+import { MerchantHomePage } from './merchants'
 
 function AppRouter () {
   return (
@@ -13,13 +15,17 @@ function AppRouter () {
               <Link to='/'>Home</Link>
             </li>
             <li>
-              <Link to='/another'>Another route</Link>
+              <Link to='/users'>Users</Link>
+            </li>
+            <li>
+              <Link to='/merchants'>Merchants</Link>
             </li>
           </ul>
         </nav>
         <div className='main-content' css={contentStyle}>
           <Route component={Home} exact path='/' />
-          <Route component={() => (<div>Content for /another route</div>)} exact path='/another' />
+          <Route component={UserHomePage} exact path='/users' />
+          <Route component={MerchantHomePage} exact path='/merchants' />
         </div>
       </div>
     </Router>

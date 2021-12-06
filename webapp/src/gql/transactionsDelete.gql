@@ -1,0 +1,5 @@
+mutation Mutation($deleteTransactionId: ID!) {
+  deleteTransaction(id: $deleteTransactionId) {
+    id
+  }
+}
