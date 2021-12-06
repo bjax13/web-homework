@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { arrayOf, string, bool, number, shape } from 'prop-types'
 import { css } from '@emotion/core'
 import { useMutation } from '@apollo/client'
+import { FormattedMessage } from 'react-intl'
 import CreateTransaction from '../../gql/transactionsCreate.gql'
 import UpdateTransaction from '../../gql/transactionsUpdate.gql'
 import DeleteTransaction from '../../gql/transactionsDelete.gql'
@@ -11,6 +12,7 @@ import CreateEditTransactionModal from './createEditTransactionModal/CreateEditT
 import TransactionTableColumnHeader from './TransactionTableColumnHeader/TransactionTableColumnHeader'
 import Button from '../general/Button/Button'
 import TransactionChart from './transactionChart/TransactionChart'
+import messages from './TransactionTable.messages'
 
 const styles = css`
   .header {
@@ -26,10 +28,6 @@ function TransactionTable ({ data }) {
   const [isRomanNumeral, setIsRomanNumeral] = useState(false)
   const [isModalEditMode, setModalEditMode] = useState(false)
   const [seedTransactionToEdit, setSeedTransactionToEdit] = useState({})
-
-  const queryParams = new URLSearchParams(window.location.search)
-  const i18n = queryParams.get('i18n')
-  console.log('i18n', i18n) // TODO Time permitting implement the rest of i18n. Perhap use react-intl.
 
   useEffect(() => {
     setTableData(data)
@@ -116,8 +114,8 @@ function TransactionTable ({ data }) {
 
   return (
     <>
+      <Button onClick={() => setIsRomanNumeral(!isRomanNumeral)}><FormattedMessage {...messages.romanNumeral} /></Button>
       {!isModalOpen && <Button onClick={handleCreateModalOpen}>Create Transaction</Button>}
-      <Button onClick={() => setIsRomanNumeral(!isRomanNumeral)}>Toggle Roman Numeral</Button>
       <TransactionChart data={getChartData()} title='Comparitive Transaction Sizes' />
       <table css={styles}>
         <tbody>

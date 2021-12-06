@@ -34,6 +34,9 @@ export const styles = css`
       border-top: 1px solid #ccc;
       background: #eee;
       padding: 0.5rem 1rem;
+      button:first-child {
+        margin-right: 15px;
+      }
     }
   }
 `

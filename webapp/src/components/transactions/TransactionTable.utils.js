@@ -15,9 +15,9 @@ export const makeDataTestId = (transactionId, fieldName) => `transaction-${trans
 
 const sharedColumnProperties = [
   { type: 'id', text: 'ID', value: 'id' },
-  { type: 'userID', text: 'User ID', value: 'userId' },
+  // { type: 'userID', text: 'User ID', value: 'userId' },
   { type: 'description', text: 'Description', value: 'description' },
-  { type: 'merchantID', text: 'Merchant ID', value: 'merchantId' },
+  // { type: 'merchantID', text: 'Merchant ID', value: 'merchantId' },
   { type: 'debit', text: 'Debit', value: 'debit' },
   { type: 'credit', text: 'Credit', value: 'credit' },
   { type: 'amount', text: 'Amount', value: 'amount' }

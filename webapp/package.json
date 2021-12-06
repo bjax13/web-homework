@@ -70,6 +70,7 @@
     "react-dom": "16.8.6",
     "react-google-charts": "^3.0.15",
     "react-hot-loader": "4.11.0",
+    "react-intl": "^5.23.0",
     "react-router-dom": "5.0.1"
   },
   "devDependencies": {

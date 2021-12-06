@@ -3,7 +3,7 @@ import { any, arrayOf, string, bool, number, shape, func } from 'prop-types'
 // import { css } from '@emotion/core'
 import TransactionTableRowItem from '../TransactionTableRowItem/TransactionTableRowItem'
 import { makeDataTestId, convertToRoman } from '../TransactionTable.utils'
-import { AMOUNT_TYPE } from './TransactionTableRow.utils'
+import { AMOUNT_TYPE, DEBIT_TYPE, CREDIT_TYPE } from './TransactionTableRow.utils'
 import Button from '../../general/Button/Button'
 
 // const styles = css` //TODO time permitting add CSS
@@ -14,14 +14,27 @@ import Button from '../../general/Button/Button'
 
 function TransactionTableRow ({ rowCells, transaction, onEdit, onDelete, isRomanNumeral }) {
   const { id: transactionId } = transaction
+
+  // TODO time permitting add logic to combine Debit and Credit Columns
+  const getTableValue = (rowItem) => {
+    switch (rowItem.cell.type) {
+      case AMOUNT_TYPE:
+        return isRomanNumeral ? convertToRoman(rowItem.cell?.value) : rowItem.cell?.value
+      case DEBIT_TYPE:
+        return rowItem.cell?.value ? 'Debit' : ''
+      case CREDIT_TYPE:
+        return rowItem.cell?.value ? 'Credit' : ''
+      default:
+        return rowItem.cell?.value
+    }
+  }
+
   return (
     <>
       <tr data-testid={`transaction-${transactionId}`} key={`transaction-${transactionId}`}>
         {rowCells.map((rowItem) => (
           <TransactionTableRowItem dataTestid={rowItem.dataTestid} key={rowItem.dataTestid}>
-            {isRomanNumeral && rowItem.cell.type === AMOUNT_TYPE // TODO add logic so that credit/debit displays a value
-              ? convertToRoman(rowItem.cell?.value)
-              : rowItem.cell?.value}
+            {getTableValue(rowItem)}
           </TransactionTableRowItem>
         ))}
         <TransactionTableRowItem dataTestid={makeDataTestId(transactionId, 'onEdit')}>
