@@ -3,6 +3,14 @@ import { func, bool, object } from 'prop-types'
 import { TRANSACTION_TYPES } from '../TransactionTable.utils'
 import { styles } from './CreateEditTransactionModal.styles'
 import Button from '../../general/Button/Button'
+import sharedMessages from '../../../lang/shared.messages'
+import createEditTransactionModalMessages from './CreateEditTransactionModal.messages'
+import { FormattedMessage, useIntl } from 'react-intl'
+
+const messages = {
+  ...sharedMessages,
+  ...createEditTransactionModalMessages
+}
 
 function CreateEditTransactionModal ({ onCancel, onSubmit, isOpen, isEdit, seedTransactionToEdit }) {
   const handleKeyDown = () => {} // TODO handle keydown for accessability
@@ -11,6 +19,7 @@ function CreateEditTransactionModal ({ onCancel, onSubmit, isOpen, isEdit, seedT
     description: null,
     transactionType: TRANSACTION_TYPES.DEBIT
   })
+  const intl = useIntl()
 
   useEffect(() => {
     setTransactionValues(seedTransactionToEdit)
@@ -34,18 +43,20 @@ function CreateEditTransactionModal ({ onCancel, onSubmit, isOpen, isEdit, seedT
                 <input
                   name='amount'
                   onChange={handleOnChange}
-                  placeholder='Enter amount'
+                  placeholder={intl.formatMessage({ ...messages.enterAmount })}
                   type='number'
                   value={transactionValues.amount}
                 />
                 <input
                   name='description'
                   onChange={handleOnChange}
-                  placeholder='Enter description'
+                  placeholder={intl.formatMessage({ ...messages.enterDescription })}
                   value={transactionValues.description}
                 />
 
-                <label htmlFor='type-select'>Transaction Type:</label>
+                <label htmlFor='type-select'>
+                  <FormattedMessage {...messages.transactionType} />
+                </label>
                 <select
                   id='type-select'
                   name='transactionType'
@@ -53,16 +64,20 @@ function CreateEditTransactionModal ({ onCancel, onSubmit, isOpen, isEdit, seedT
                   onChange={handleOnChange}
                   value={transactionValues.transactionType}
                 >
-                  <option value={TRANSACTION_TYPES.DEBIT}>Debit</option>
-                  <option value={TRANSACTION_TYPES.CREDIT}>Credit</option>
+                  <FormattedMessage {...messages.debit}>
+                    {(message) => <option value={TRANSACTION_TYPES.DEBIT}>{message}</option>}
+                  </FormattedMessage>
+                  <FormattedMessage {...messages.credit}>
+                    {(message) => <option value={TRANSACTION_TYPES.CREDIT}>{message}</option>}
+                  </FormattedMessage>
                 </select>
               </div>
               <div className='actions'>
                 <Button onClick={() => onSubmit(transactionValues, isEdit)} type='submit'>
-                  Submit
+                  <FormattedMessage {...messages.submit} />
                 </Button>
                 <Button onClick={onCancel} type='button'>
-                  Cancel
+                  <FormattedMessage {...messages.cancel} />
                 </Button>
               </div>
             </div>

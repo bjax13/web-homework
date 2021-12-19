@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { arrayOf, string, bool, number, shape } from 'prop-types'
 import { css } from '@emotion/core'
 import { useMutation } from '@apollo/client'
-import { FormattedMessage } from 'react-intl'
+import { FormattedMessage, useIntl } from 'react-intl'
 import CreateTransaction from '../../gql/transactionsCreate.gql'
 import UpdateTransaction from '../../gql/transactionsUpdate.gql'
 import DeleteTransaction from '../../gql/transactionsDelete.gql'
@@ -28,6 +28,7 @@ function TransactionTable ({ data }) {
   const [isRomanNumeral, setIsRomanNumeral] = useState(false)
   const [isModalEditMode, setModalEditMode] = useState(false)
   const [seedTransactionToEdit, setSeedTransactionToEdit] = useState({})
+  const intl = useIntl()
 
   useEffect(() => {
     setTableData(data)
@@ -62,8 +63,6 @@ function TransactionTable ({ data }) {
     let variables = {
       amount: parseFloat(amount),
       description: description
-      // merchant_id: '',
-      // user_id: ''
     }
 
     if (transactionType === TRANSACTION_TYPES.CREDIT || TRANSACTION_TYPES.DEBIT) {
@@ -106,7 +105,6 @@ function TransactionTable ({ data }) {
   }
 
   const getChartData = () => {
-    // TODO Update the chart to be based off of Users or Merchants if we end up adding those data types
     const chartData = tabledata.map(({ description, amount }) => [description, amount])
     chartData.unshift(['description', 'amount']) // add column header nessisary for data
     return chartData
@@ -114,9 +112,15 @@ function TransactionTable ({ data }) {
 
   return (
     <>
-      <Button onClick={() => setIsRomanNumeral(!isRomanNumeral)}><FormattedMessage {...messages.romanNumeral} /></Button>
-      {!isModalOpen && <Button onClick={handleCreateModalOpen}>Create Transaction</Button>}
-      <TransactionChart data={getChartData()} title='Comparitive Transaction Sizes' />
+      <Button onClick={() => setIsRomanNumeral(!isRomanNumeral)}>
+        <FormattedMessage {...messages.romanNumeral} />
+      </Button>
+      {!isModalOpen && (
+        <Button onClick={handleCreateModalOpen}>
+          <FormattedMessage {...messages.createTransaction} />
+        </Button>
+      )}
+      <TransactionChart data={getChartData()} title={intl.formatMessage({ ...messages.comparitiveTransaction })} />
       <table css={styles}>
         <tbody>
           <tr className='header'>

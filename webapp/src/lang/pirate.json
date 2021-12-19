@@ -1,7 +1,21 @@
-
 {
-    "romanNumeral": {
-        "defaultMessage": "The Helm",
-        "description": "title of control panel section"
-    }
+  "transaction.graph.title.comparitiveTransaction": "Treasure Haul",
+  "transaction.modal.button.cancel": "Return to Port",
+  "transaction.modal.button.submit": "Record Plunder",
+  "transaction.modal.label.transactionType": "Treasure Type:",
+  "transaction.modal.placeholder.enterAmount": "Worth in Doubloons",
+  "transaction.modal.placeholder.enterDescription": "Depiction of Loot",
+  "transaction.route.tab.home": "The Sea",
+  "transaction.route.tab.merchants": "The Plundard",
+  "transaction.route.tab.users": "The Crew",
+  "transaction.tabel.button.createTransaction": "Log Plunder",
+  "transaction.tabel.button.romanNumeral": "Turnabout Coffer Counters",
+  "transaction.tabel.cell.value.credit": "'Borrow'",
+  "transaction.tabel.cell.value.debit": "Bounty",
+  "transaction.tabel.cell.value.delete": "Walk the Plank",
+  "transaction.tabel.cell.value.edit": "Run a Rig",
+  "transaction.tabel.placeholder.loading": "Seeking Treasure ...",
+  "transaction.tabel.title.amount": "Doubloons",
+  "transaction.tabel.title.description": "Whats Yar Plunder",
+  "transaction.tabel.title.id": "Quartermaster Numb Arr"
 }

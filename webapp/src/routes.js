@@ -4,21 +4,29 @@ import { css } from '@emotion/core'
 import { Home } from './home'
 import { UserHomePage } from './users'
 import { MerchantHomePage } from './merchants'
+import { FormattedMessage } from 'react-intl'
+import messages from './routes.messages'
 
 function AppRouter () {
   return (
     <Router>
       <div css={layoutStyle}>
         <nav css={navStyle}>
-          <ul >
+          <ul>
             <li>
-              <Link to='/'>Home</Link>
+              <Link to='/'>
+                <FormattedMessage {...messages.home} />
+              </Link>
             </li>
             <li>
-              <Link to='/users'>Users</Link>
+              <Link to='/users'>
+                <FormattedMessage {...messages.users} />
+              </Link>
             </li>
             <li>
-              <Link to='/merchants'>Merchants</Link>
+              <Link to='/merchants'>
+                <FormattedMessage {...messages.merchants} />
+              </Link>
             </li>
           </ul>
         </nav>
@@ -35,20 +43,20 @@ function AppRouter () {
 export default AppRouter
 
 const layoutStyle = css`
-    display: grid;
-    grid-row-gap: 24px;
-    padding: 8px;
+  display: grid;
+  grid-row-gap: 24px;
+  padding: 8px;
 `
 
 const navStyle = css`
   grid-row: 1;
 
   & > ul {
-      display: flex;
-      flex-direction: row;
-      list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
   }
-  
+
   & > ul > li:not(:first-of-type) {
     margin-left: 16px;
   }

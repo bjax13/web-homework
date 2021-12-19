@@ -1,3 +1,25 @@
+import { createIntl, createIntlCache } from 'react-intl'
+import sharedMessages from '../../lang/shared.messages'
+import transactionTableMessages from './TransactionTable.messages'
+import en from '../../lang/en.json'
+import pirate from '../../lang/pirate.json'
+
+const queryParams = new URLSearchParams(window.location.search)
+const i18n = queryParams.get('i18n')
+const locale = i18n ? 'pirate' : 'en'
+const translationFiles = {
+  en,
+  pirate
+}
+
+const messages = {
+  ...sharedMessages,
+  ...transactionTableMessages
+}
+
+const cache = createIntlCache()
+const intl = createIntl({ locale, messages: translationFiles[locale], cache })
+
 export const TRANSACTION_TYPES = Object.freeze({
   CREDIT: 'credit',
   DEBIT: 'debit'
@@ -14,19 +36,17 @@ export const TRANSACTION_TYPES = Object.freeze({
 export const makeDataTestId = (transactionId, fieldName) => `transaction-${transactionId}-${fieldName}`
 
 const sharedColumnProperties = [
-  { type: 'id', text: 'ID', value: 'id' },
-  // { type: 'userID', text: 'User ID', value: 'userId' },
-  { type: 'description', text: 'Description', value: 'description' },
-  // { type: 'merchantID', text: 'Merchant ID', value: 'merchantId' },
-  { type: 'debit', text: 'Debit', value: 'debit' },
-  { type: 'credit', text: 'Credit', value: 'credit' },
-  { type: 'amount', text: 'Amount', value: 'amount' }
+  { type: 'id', text: intl.formatMessage({ ...messages.id }), value: 'id' },
+  { type: 'description', text: intl.formatMessage({ ...messages.description }), value: 'description' },
+  { type: 'debit', text: intl.formatMessage({ ...messages.debit }), value: 'debit' },
+  { type: 'credit', text: intl.formatMessage({ ...messages.credit }), value: 'credit' },
+  { type: 'amount', text: intl.formatMessage({ ...messages.amount }), value: 'amount' }
 ]
 
 export const columnProperties = [
   ...sharedColumnProperties,
-  { type: 'edit', text: 'Edit', value: 'edit' },
-  { type: 'delete', text: 'Delete', value: 'delete' }
+  { type: 'edit', text: intl.formatMessage({ ...messages.edit }), value: 'edit' },
+  { type: 'delete', text: intl.formatMessage({ ...messages.delete }), value: 'delete' }
 ]
 
 /*

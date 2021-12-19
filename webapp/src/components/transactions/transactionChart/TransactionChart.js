@@ -2,6 +2,8 @@ import React from 'react'
 import { array, string } from 'prop-types'
 import { styles } from './TransactionChart.styles'
 import Chart from 'react-google-charts'
+import messages from './TransactionChart.messages'
+import { FormattedMessage } from 'react-intl'
 
 function TransactionChart ({ title, data }) {
   return (
@@ -10,7 +12,11 @@ function TransactionChart ({ title, data }) {
         chartType='PieChart'
         data={data}
         height={'300px'}
-        loader={<div>Loading Chart ...</div>}
+        loader={(
+          <div>
+            <FormattedMessage {...messages.loading} />
+          </div>
+        )}
         options={{
           title
         }}

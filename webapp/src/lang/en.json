@@ -1,7 +1,21 @@
-
 {
-    "romanNumeral": {
-        "defaultMessage": "Control Panel",
-        "description": "title of control panel section"
-    }
+  "transaction.graph.title.comparitiveTransaction": "Comparitive Transaction Sizes",
+  "transaction.modal.button.cancel": "Cancel",
+  "transaction.modal.button.submit": "Submit",
+  "transaction.modal.label.transactionType": "Transaction Type",
+  "transaction.modal.placeholder.enterAmount": "Enter Amount",
+  "transaction.modal.placeholder.enterDescription": "Enter Description",
+  "transaction.route.tab.home": "Home",
+  "transaction.route.tab.merchants": "Merchants",
+  "transaction.route.tab.users": "Users",
+  "transaction.tabel.button.createTransaction": "Create Transaction",
+  "transaction.tabel.button.romanNumeral": "Toggle Roman Numeral",
+  "transaction.tabel.cell.value.credit": "Credit",
+  "transaction.tabel.cell.value.debit": "Debit",
+  "transaction.tabel.cell.value.delete": "Delete",
+  "transaction.tabel.cell.value.edit": "Edit",
+  "transaction.tabel.placeholder.loading": "Loading ...",
+  "transaction.tabel.title.amount": "Amount",
+  "transaction.tabel.title.description": "Description",
+  "transaction.tabel.title.id": "ID"
 }

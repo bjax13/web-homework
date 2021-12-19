@@ -1,29 +1,24 @@
 import React from 'react'
 import { any, arrayOf, string, bool, number, shape, func } from 'prop-types'
-// import { css } from '@emotion/core'
 import TransactionTableRowItem from '../TransactionTableRowItem/TransactionTableRowItem'
 import { makeDataTestId, convertToRoman } from '../TransactionTable.utils'
+import { FormattedMessage, useIntl } from 'react-intl'
 import { AMOUNT_TYPE, DEBIT_TYPE, CREDIT_TYPE } from './TransactionTableRow.utils'
 import Button from '../../general/Button/Button'
-
-// const styles = css` //TODO time permitting add CSS
-//   .header {
-//     font-weight: bold;
-//   }
-// `
+import messages from '../../../lang/shared.messages'
 
 function TransactionTableRow ({ rowCells, transaction, onEdit, onDelete, isRomanNumeral }) {
   const { id: transactionId } = transaction
+  const intl = useIntl()
 
-  // TODO time permitting add logic to combine Debit and Credit Columns
   const getTableValue = (rowItem) => {
     switch (rowItem.cell.type) {
       case AMOUNT_TYPE:
         return isRomanNumeral ? convertToRoman(rowItem.cell?.value) : rowItem.cell?.value
       case DEBIT_TYPE:
-        return rowItem.cell?.value ? 'Debit' : ''
+        return rowItem.cell?.value ? intl.formatMessage({ ...messages.debit }) : ''
       case CREDIT_TYPE:
-        return rowItem.cell?.value ? 'Credit' : ''
+        return rowItem.cell?.value ? intl.formatMessage({ ...messages.credit }) : ''
       default:
         return rowItem.cell?.value
     }
@@ -38,10 +33,14 @@ function TransactionTableRow ({ rowCells, transaction, onEdit, onDelete, isRoman
           </TransactionTableRowItem>
         ))}
         <TransactionTableRowItem dataTestid={makeDataTestId(transactionId, 'onEdit')}>
-          <Button onClick={() => onEdit(transaction)}>Edit</Button>
+          <Button onClick={() => onEdit(transaction)}>
+            <FormattedMessage {...messages.edit} />
+          </Button>
         </TransactionTableRowItem>
         <TransactionTableRowItem dataTestid={makeDataTestId(transactionId, 'onDelete')}>
-          <Button onClick={() => onDelete(transactionId)}>Delete</Button>
+          <Button onClick={() => onDelete(transactionId)}>
+            <FormattedMessage {...messages.delete} />
+          </Button>
         </TransactionTableRowItem>
       </tr>
     </>
