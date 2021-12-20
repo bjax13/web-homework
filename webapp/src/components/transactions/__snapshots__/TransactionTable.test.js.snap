@@ -1,0 +1,249 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Transactions Table renders table 1`] = `
+.emotion-0 {
+  border: 0;
+  background: #78f89f;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  margin: 0.2rem;
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
+.emotion-17 .header {
+  font-weight: bold;
+}
+
+.emotion-18 .modal-overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+  cursor: pointer;
+}
+
+.emotion-18 .modal {
+  width: 500px;
+  background: white;
+  border: 1px solid #ccc;
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  z-index: 5;
+}
+
+.emotion-18 .modal h2 {
+  border-bottom: 1px solid #ccc;
+  padding: 1rem;
+  margin: 0;
+}
+
+.emotion-18 .modal .modal-content {
+  padding: 1rem;
+}
+
+.emotion-18 .modal .actions {
+  border-top: 1px solid #ccc;
+  background: #eee;
+  padding: 0.5rem 1rem;
+}
+
+.emotion-18 .modal .actions button:first-child {
+  margin-right: 15px;
+}
+
+<div>
+  <button
+    class="emotion-0 emotion-1"
+  >
+    Toggle Roman Numeral
+  </button>
+  <button
+    class="emotion-0 emotion-1"
+  >
+    Create Transaction
+  </button>
+  <div
+    class="emotion-4"
+  >
+    <div>
+      Loading ...
+    </div>
+  </div>
+  <table
+    class="emotion-17"
+  >
+    <tbody>
+      <tr
+        class="header"
+      >
+        <td>
+          ID
+        </td>
+        <td>
+          Description
+        </td>
+        <td>
+          Debit
+        </td>
+        <td>
+          Credit
+        </td>
+        <td>
+          Amount
+        </td>
+        <td>
+          Edit
+        </td>
+        <td>
+          Delete
+        </td>
+      </tr>
+      <tr
+        data-testid="transaction-61add94066be4c252121c11b"
+      >
+        <td
+          data-testid="transaction-61add94066be4c252121c11b-id"
+        >
+          61add94066be4c252121c11b
+        </td>
+        <td
+          data-testid="transaction-61add94066be4c252121c11b-description"
+        >
+          Jeffery buying Pizza
+        </td>
+        <td
+          data-testid="transaction-61add94066be4c252121c11b-debit"
+        >
+          Debit
+        </td>
+        <td
+          data-testid="transaction-61add94066be4c252121c11b-credit"
+        />
+        <td
+          data-testid="transaction-61add94066be4c252121c11b-amount"
+        >
+          67
+        </td>
+        <td
+          data-testid="transaction-61add94066be4c252121c11b-onEdit"
+        >
+          <button
+            class="emotion-0 emotion-1"
+          >
+            Edit
+          </button>
+        </td>
+        <td
+          data-testid="transaction-61add94066be4c252121c11b-onDelete"
+        >
+          <button
+            class="emotion-0 emotion-1"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+      <tr
+        data-testid="transaction-61add94066be4c252121c11c"
+      >
+        <td
+          data-testid="transaction-61add94066be4c252121c11c-id"
+        >
+          61add94066be4c252121c11c
+        </td>
+        <td
+          data-testid="transaction-61add94066be4c252121c11c-description"
+        >
+          Madeline buying blue
+        </td>
+        <td
+          data-testid="transaction-61add94066be4c252121c11c-debit"
+        />
+        <td
+          data-testid="transaction-61add94066be4c252121c11c-credit"
+        >
+          Credit
+        </td>
+        <td
+          data-testid="transaction-61add94066be4c252121c11c-amount"
+        >
+          949
+        </td>
+        <td
+          data-testid="transaction-61add94066be4c252121c11c-onEdit"
+        >
+          <button
+            class="emotion-0 emotion-1"
+          >
+            Edit
+          </button>
+        </td>
+        <td
+          data-testid="transaction-61add94066be4c252121c11c-onDelete"
+        >
+          <button
+            class="emotion-0 emotion-1"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+      <tr
+        data-testid="transaction-61add94066be4c252121c140"
+      >
+        <td
+          data-testid="transaction-61add94066be4c252121c140-id"
+        >
+          61add94066be4c252121c140
+        </td>
+        <td
+          data-testid="transaction-61add94066be4c252121c140-description"
+        >
+          Cleora buying withdrawal
+        </td>
+        <td
+          data-testid="transaction-61add94066be4c252121c140-debit"
+        />
+        <td
+          data-testid="transaction-61add94066be4c252121c140-credit"
+        >
+          Credit
+        </td>
+        <td
+          data-testid="transaction-61add94066be4c252121c140-amount"
+        >
+          235
+        </td>
+        <td
+          data-testid="transaction-61add94066be4c252121c140-onEdit"
+        >
+          <button
+            class="emotion-0 emotion-1"
+          >
+            Edit
+          </button>
+        </td>
+        <td
+          data-testid="transaction-61add94066be4c252121c140-onDelete"
+        >
+          <button
+            class="emotion-0 emotion-1"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div
+    class="emotion-18"
+  />
+</div>
+`;

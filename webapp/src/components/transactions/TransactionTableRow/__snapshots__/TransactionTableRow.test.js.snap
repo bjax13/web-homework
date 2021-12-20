@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Transactions Table renders table 1`] = `
+.emotion-0 {
+  border: 0;
+  background: #78f89f;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  margin: 0.2rem;
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
+<div>
+  <tr
+    data-testid="transaction-61add94066be4c252121c140"
+  >
+    <td
+      data-testid="transaction-61add94066be4c252121c140-id"
+    >
+      61add94066be4c252121c140
+    </td>
+    <td
+      data-testid="transaction-61add94066be4c252121c140-description"
+    >
+      Cleora buying Bacon
+    </td>
+    <td
+      data-testid="transaction-61add94066be4c252121c140-debit"
+    />
+    <td
+      data-testid="transaction-61add94066be4c252121c140-credit"
+    >
+      Credit
+    </td>
+    <td
+      data-testid="transaction-61add94066be4c252121c140-amount"
+    >
+      235
+    </td>
+    <td
+      data-testid="transaction-61add94066be4c252121c140-onEdit"
+    >
+      <button
+        class="emotion-0 emotion-1"
+      >
+        Edit
+      </button>
+    </td>
+    <td
+      data-testid="transaction-61add94066be4c252121c140-onDelete"
+    >
+      <button
+        class="emotion-0 emotion-1"
+      >
+        Delete
+      </button>
+    </td>
+  </tr>
+</div>
+`;
